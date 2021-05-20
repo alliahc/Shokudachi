@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Splat Sound Effect - No Copyright (HD).wav-53c14ef3a2e81240d05d65ee1e43e504.sample"
+
+[deps]
+
+source_file="res://audio_assets/Splat Sound Effect - No Copyright (HD).wav"
+dest_files=[ "res://.import/Splat Sound Effect - No Copyright (HD).wav-53c14ef3a2e81240d05d65ee1e43e504.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

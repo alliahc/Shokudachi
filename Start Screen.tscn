@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/trial_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://assets/font_default.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Start Screen.gd" type="Script" id=4]
+
+[node name="Start Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_top = 0.022
+anchor_right = 0.098
+anchor_bottom = 0.022
+margin_left = -691.161
+margin_top = -165.166
+margin_right = 1413.8
+margin_bottom = 915.834
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="."]
+margin_top = 248.428
+margin_right = 480.0
+margin_bottom = 304.428
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.889459, 0.914063, 0.464172, 1 )
+custom_colors/font_outline_modulate = Color( 0.756863, 0.717647, 0.294118, 1 )
+text = "CATCH WATER"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 163.673
+margin_top = 323.0
+margin_right = 320.673
+margin_bottom = 439.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start Button" type="Button" parent="VBoxContainer"]
+margin_right = 157.0
+margin_bottom = 56.0
+theme = ExtResource( 1 )
+button_mask = 0
+text = "start"
+
+[node name="Quit Button" type="Button" parent="VBoxContainer"]
+margin_top = 60.0
+margin_right = 157.0
+margin_bottom = 116.0
+text = "quit"
+[connection signal="pressed" from="VBoxContainer/Start Button" to="." method="_on_Start_Button_pressed"]

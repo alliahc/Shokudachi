@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://plant_assets/aloe_f3.png" type="Texture" id=1]
 [ext_resource path="res://Plant.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://plant_assets/outdoor_background.png" type="Texture" id=7]
 [ext_resource path="res://Bar.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Counter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://wateringmain.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -27,9 +28,12 @@ animations = [ {
 extents = Vector2( 53.37, 83.6068 )
 
 [node name="Plant" type="Area2D"]
+light_mask = 0
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="background" type="TextureRect" parent="."]
+light_mask = 0
 margin_right = 480.0
 margin_bottom = 720.0
 texture = ExtResource( 7 )
@@ -42,29 +46,34 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Bar" parent="." instance=ExtResource( 8 )]
+light_mask = 0
 margin_left = 65.5159
 margin_top = 268.363
 margin_right = 417.516
 margin_bottom = 308.363
 
 [node name="Counter" parent="." instance=ExtResource( 9 )]
+light_mask = 0
 margin_left = 359.21
 margin_top = 24.0416
 margin_right = 459.21
 margin_bottom = 64.0416
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 248.824, 506.645 )
+light_mask = 0
+position = Vector2( 255.174, 493.946 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Aloe"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
 position = Vector2( 251.606, 525.059 )
 scale = Vector2( 2, 2 )
 shape = SubResource( 2 )
 
 [node name="MenuButton" type="MenuButton" parent="."]
+light_mask = 0
 margin_left = 147.0
 margin_top = 361.0
 margin_right = 359.0
@@ -77,6 +86,14 @@ __meta__ = {
 
 [node name="SunlightMain" parent="MenuButton" instance=ExtResource( 4 )]
 visible = false
+light_mask = 0
 position = Vector2( -147.924, -362.709 )
+SunlightSunlight = null
+SunlightFly = null
+
+[node name="wateringmain" parent="MenuButton" instance=ExtResource( 11 )]
+visible = false
+position = Vector2( -152.563, -349.623 )
 [connection signal="timeout" from="CollectTimer" to="." method="_on_CollectTimer_timeout"]
 [connection signal="collect" from="MenuButton" to="." method="collect"]
+[connection signal="go" from="MenuButton" to="MenuButton/wateringmain" method="_on_MenuButton_go"]
